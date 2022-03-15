@@ -1,0 +1,10 @@
+Django
+Jinja2
+Markdown
+
+[dev]
+check-manifest
+pytest>=3.7
+setuptools
+twine
+wheel
