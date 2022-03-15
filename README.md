@@ -8,12 +8,12 @@ The plugin is available as a Python package in pypi and can be installed with pi
 
 ### 1.1. Install package
 
-Enter Netbox's virtual environment.
+#### 1.1.1. Enter Netbox's virtual environment.
 ```
 source /opt/netbox/venv/bin/activate
 ```
 
-#### 1.1.1. Using git (development use)
+#### 1.1.2. Using git (development use)
 **OBS:** This method is recommend for testing and development purposes and is not for production use.
 
 Move to netbox main folder
