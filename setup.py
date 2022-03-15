@@ -27,6 +27,7 @@ dev_requires = [
 setup(
     name="netbox-plugins-store",
     version="0.0.1",
+    
     author="Emerson Felipe and Marcos Vella",
     author_email="emerson.felipe@nmultifibra.com.br",
     description="Netbox Plugins Store",

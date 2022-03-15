@@ -11,7 +11,7 @@ from django.urls import reverse
 
 from django.views.generic import View
 
-from . import repositories
+from netbox_plugins_store.github_api import github
 
 class HomeView(View):
     """Homepage"""
@@ -24,6 +24,6 @@ class HomeView(View):
             request,
             self.template_name,
             {
-                "github": repositories.github_json,
+                "github": github.repositories,
             }
         )
