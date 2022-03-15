@@ -83,37 +83,41 @@
                     </p>
                 </div>
 
-                <ul style="
-                        padding-top: 08px;
-                        list-style-type: none;
-                        text-align: center;
-                    ">
-                    <li>
-                        
-                        <div class="d-flex flex-row bd-hightlight mb-3">
+                {# Netbox Plugins Store - Custom Links #}
+                <div class="nav-item dropdown dropup">
+                    <div style="
+                        text-decoration: none;
+                        display: inline-block;
+                        margin: 0 2px;
+                        padding: 0 7px;
+                        font-size: 12px;
+                        font-weight: 500;
+                        white-space: nowrap;
+                        border-radius: 2em;
+                        border: 1px solid;
+                        color: #0969da;
+                        background-color: #ddf4ff;"
+                    >
+                        <a type="button" class="nav-link dropdown-toggle text-primary" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span
+                                class="p-2 bd-hightlight"
+                                href="https://github.com/topics/{{ topic }}"
+                                target="_blank">
+                                GitHub Topics
+                            </span>
+                        </a>
+                        <ul class="dropdown-menu disabled" aria-labelledby="navbarDropdown">
                             {% for topic in repo.topics %}
-                                <a
-                                    style="
-                                        text-decoration: none;
-                                        display: inline-block;
-                                        margin: 0 2px;
-                                        padding: 0 7px;
-                                        font-size: 12px;
-                                        font-weight: 500;
-                                        white-space: nowrap;
-                                        border-radius: 2em;
-                                        border: 1px solid;
-                                        color: #0969da;
-                                        background-color: #ddf4ff;"
-                                    class="p-2 bd-hightlight"
-                                    href="https://github.com/topics/{{ topic }}"
-                                    target="_blank"
-                                >{{ topic }}</a>
+                                <li>
+                                    {# Netbox Plugins Store - Documentation #}
+                                    <a type="button" class="dropdown-item" href="https://github.com/topics/{{ topic }}" target="_blank">
+                                        {{ topic }}
+                                    </a>
+                                <li>
                             {% endfor %}
-                        </div>
-                    </li>
-
-                </ul>
+                        </ul>
+                    </div>
+                </div>
 
             </div>
 
