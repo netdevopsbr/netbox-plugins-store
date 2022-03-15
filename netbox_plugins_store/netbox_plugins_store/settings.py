@@ -15,6 +15,12 @@ from pathlib import Path
 import sys
 import os
 
+#
+# Environment setup
+#
+
+VERSION = '0.0.1'
+    
 # Set the base directory two levels up
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -28,7 +34,7 @@ SECRET_KEY = 'django-insecure-1(bfngnn2)x7@0zngz2$cx3#6msv2u8=%ow%qv$sofdgpw3g#l
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
