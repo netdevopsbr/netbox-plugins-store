@@ -1,4 +1,4 @@
-{% extends 'layout.html' %}
+{% extends 'base/layout.html' %}
 
 {% block title %}
     Home
@@ -120,4 +120,10 @@
         {% endfor %}
     </div>
 
+{% endblock %}
+
+{% block footer_links %}
+    {{ block.super }}
+
+    {% include "footer.html" %}
 {% endblock %}
