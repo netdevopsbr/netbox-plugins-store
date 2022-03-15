@@ -43,10 +43,10 @@ PLUGINS = ['netbox_plugins_store']
 ```
 
 ### 1.3. Run Database Migrations
-
+**OBS:** You **must** be inside Netbox's Virtual Environment (venv)
 ```
-(venv) $ cd /opt/netbox/netbox/
-(venv) $ python3 manage.py migrate
+cd /opt/netbox/netbox/
+python3 manage.py migrate
 ```
 
 ---
