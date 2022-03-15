@@ -23,4 +23,40 @@
             </div>
         </div>
     </body>
+    <footer>
+        {% block footer %}
+            <div class="row align-items-center justify-content-between mx-0"> 
+                <div class="col-sm-12 col-md-auto fs-4 noprint">
+                    <nav class="nav justify-content-center justify-content-lg-start">
+                        {% block footer_links %}
+                            {# Footer links for the core Netbox Plugins Store#}
+                            {# Documentation #}
+                            <a type="button" class="nav-link" href="https://netbox.readthedocs.io/en/stable/" target="_blank">
+                                <i title="Docs" class="mdi mdi-book-open-variant text-primary" data-bs-placement="top" data-bs-toggle="tooltip"></i>
+                            </a>
+
+                            {# GitHub #}
+                            <a type="button" class="nav-link" href="https://github.com/netbox-community/netbox" target="_blank">
+                                <i title="Source Code" class="mdi mdi-github text-primary" data-bs-placement="top" data-bs-toggle="tooltip"></i>
+                            </a>
+
+                            {# NetDev Slack #}
+                            <a type="button" class="nav-link" href="https://netdev.chat/" target="_blank">
+                                <i title="Community" class="mdi mdi-slack text-primary" data-bs-placement="top" data-bs-toggle="tooltip"></i>
+                            </a>
+
+                            {# Netbox Telegram (Brazil) #}
+                            <a type="button" class="dropdown-item" href="https://t.me/netboxbr" target="_blank">
+                                <i title="Proxbox | Telegram (Brazil)" class="mdi mdi-telegram text-primary" data-bs-placement="top" data-bs-toggle="tooltip"></i> Telegram (BR)
+                            </a>
+                        {% endblock footer_links %}
+                    </nav>
+                </div>
+
+                <div class="col-sm-12 col-md-auto text-center text-lg-end text-muted">
+                    <span class="ms-md-3 d-block d-md-inline">Netbox Plugins Store (v0.0.1)</span>
+                </div>  
+            </div>
+        {% endblock %}
+    </footer>
 </html>

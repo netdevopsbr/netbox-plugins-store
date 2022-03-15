@@ -5,6 +5,23 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Netbox Plugins Store - Homepage</h1>
-    <h2>Easily find a useful Netbox Plugin for your environment!</h2>
+    <div style="text-align:center;">
+        <h1>Netbox Plugins Store - Homepage</h1>
+        <h2>Easily find a useful Netbox Plugin for your environment!</h2>
+    </div>
+
+    {% if github %}
+        <div style="width:200px" class="d-flex align-content-stretch flex-wrap repository">
+            {% for repo in github %}
+                <p><strong>{{ repo.name }}</strong></p>
+                <ul>
+                    <li>{{ repo.full_name }}</li>
+                    <li>{{ repo.owner.login }}</li>
+                    <li>{{ repo.owner.url }}</li>
+                </ul>
+                <hr>
+            {% endfor %}
+        </div>
+    {% endif %}
+    
 {% endblock %}
