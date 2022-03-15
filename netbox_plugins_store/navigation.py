@@ -3,7 +3,7 @@ from utilities.choices import ButtonColorChoices
 
 menu_items = (
     PluginMenuItem(
-        link='plugins:netbox_animal_sounds:random_animal',
-        link_text='Random sound',
+        link='plugins:netbox_plugins_store:home',
+        link_text='Netbox Plugins',
     ),
 )
