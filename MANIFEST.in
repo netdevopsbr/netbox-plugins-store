@@ -1,0 +1,8 @@
+include *.lock
+include *.md
+include *.py
+include *.txt
+recursive-include development *.env
+recursive-include development *.py
+recursive-include development *.yml
+recursive-include netbox_plugins_store *.py
