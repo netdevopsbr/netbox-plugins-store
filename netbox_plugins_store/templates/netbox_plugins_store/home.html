@@ -17,7 +17,7 @@
             <div 
                 style="
                     width:600px;
-                    height: 280px;
+                    height: 220px;
                     position: relative;
                     display: flex;
                     flex-direction: column;
@@ -88,13 +88,13 @@
                         list-style-type: none;
                         text-align: center;
                     ">
-                    <li class="p-2 bd-hightlight"><strong>Open Issues: </strong>{{ repo.open_issues }}</li>
                     <li>
                         
                         <div class="d-flex flex-row bd-hightlight mb-3">
                             {% for topic in repo.topics %}
-                                <span 
+                                <a
                                     style="
+                                        text-decoration: none;
                                         display: inline-block;
                                         margin: 0 2px;
                                         padding: 0 7px;
@@ -106,7 +106,9 @@
                                         color: #0969da;
                                         background-color: #ddf4ff;"
                                     class="p-2 bd-hightlight"
-                                >{{ topic }}</span>
+                                    href="https://github.com/topics/{{ topic }}"
+                                    target="_blank"
+                                >{{ topic }}</a>
                             {% endfor %}
                         </div>
                     </li>
