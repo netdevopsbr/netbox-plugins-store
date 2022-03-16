@@ -6,6 +6,34 @@ import math
 
 class GitHubAPI():
     def get_netbox_repos(self):
+
+        github_user = 'emersonfelipesp'
+        github_repo_name = 'netbox-plugins-store'
+        github_file_name = 'repositories.json'
+
+        # HTTP Request
+        get_response = requests.get(
+            f'https://api.github.com/repos/{github_user}/{github_repo_name}/contents/{github_file_name}',
+            headers = {
+                "Accept": "application/vnd.github.v3+json"
+            }
+        ).json()
+
+        raw_content_url = get_response.get('download_url')
+
+        # Get Raw Content of 'repositories.json' file from GitHub 'emersonfelipesp/netbox-plugins-store' repo
+        get_json_file = requests.get(
+            raw_content_url
+        )
+
+        # Convert HTTP response to 'dict'
+        repositories = json.loads(get_json_file.text)
+        return repositories
+
+
+
+
+    def create_netbox_repos(self):
         github_url = self.url
         github_api_url = self.api_url
 
@@ -123,11 +151,11 @@ def check_for_json_file():
     except FileNotFoundError:
         print('File not Found. Creating it.')
 
-        # Calls GitHubAPI's get_netbox_repos() method
+        # Calls GitHubAPI's create_netbox_repos() method
         repositories = GitHubAPI(
             'https://github.com',
             'http://api.github.com',
-        ).get_netbox_repos()
+        ).create_netbox_repos()
 
         # Save retured JSON from GitHub to 'repositories_fixed.json' file
         write_file = write_json_file(json.dumps(repositories))
@@ -136,4 +164,7 @@ def check_for_json_file():
 
 
 # JSON returned from GitHub
-repositories = check_for_json_file()
+repositories = GitHubAPI(
+    'https://github.com',
+    'http://api.github.com',
+).get_netbox_repos()
