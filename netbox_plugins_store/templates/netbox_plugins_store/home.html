@@ -1,123 +1,132 @@
-{% extends 'layout.html' %}
+{% extends 'base/layout.html' %}
 
 {% block title %}
     Home
 {% endblock %}
 
 {% block content %}
-
-    <h1 style="text-align:center;">Netbox Plugins Store - Homepage</h1>
-    <h2 style="text-align:center;">Easily find a useful Netbox Plugin for your environment!</h2>
-    <hr>
-    <br>
-
-    <div class="d-flex align-content-stretch flex-wrap">
-
-        {% for repo in github %}
-            <div 
-                style="
-                    width:600px;
-                    height: 220px;
-                    position: relative;
-                    display: flex;
-                    flex-direction: column;
-                    min-width: 0;
-                    word-wrap: break-word;
-                    background-color:#fff;
-                    background-clip: border-box;
-                    border: 1px solid rgba(0,0,0,.125);
-                    border-radius: 0.375rem;
-                    box-shadow: 0 0.125rem 0.25rem #00000013;
-                    padding: 1%;
-                    margin: 1%;
-                    ">
-                <div class="container-fluid">
-                    {# GitHub Repo Stars #}
-                    <div class="col-sm-12 col-md-auto text-center text-lg-end text-muted">
-                        <span class="ms-md-3 d-block d-md-inline"><strong>Watches: </strong>{{ repo.watchers_count }}</span>
-                        <span class="ms-md-3 d-block d-md-inline"><strong>Forks: </strong>{{ repo.forks }}</span>
-                        <span class="ms-md-3 d-block d-md-inline"><strong>⭐ Stars: </strong>{{ repo.stargazers_count }}</span>
-                    </div>
-                    <div 
-                        class="row align-items-center justify-content-between mx-0"
-                        style="
-                            margin-top: 10px;
-                            border-top: 1px solid rgba(0,0,0,.125);"
-                        >
-
-                        <div class="col-sm-12 col-md-auto fs-4 noprint mx-auto">
-
-                            <nav>
-                                {# GitHub Repo Title #}
-                                <h4 >
-
-                                    <strong>
-                                        <a
-                                            type="button"
-                                            class="nav-link"
-                                            href="{{ repo.url }}"
-                                            target="_blank"
-                                            style="
-                                                color: #337ab7;
-                                                text-decoration: none;" 
-                                            >
-                                            {{repo.name}}
-                                        </a>
-                                    </strong>
-                                </h4>
-                            </nav>
+    <div class="container">
+        <h1 style="text-align:center;">Netbox Plugins Store</h1>
+        <h2 style="text-align:center;">Easily find a useful Netbox Plugin for your environment!</h2>
+        <hr>
+        <br>
+    
+        <div class="d-flex align-content-stretch flex-wrap">
+    
+            {% for repo in github %}
+                <div 
+                    style="
+                        width:600px;
+                        height: 220px;
+                        min-width: 0;
+                        word-wrap: break-word;
+                        background-color:#fff;
+                        background-clip: border-box;
+                        border: 1px solid rgba(0,0,0,.125);
+                        border-radius: 0.375rem;
+                        box-shadow: 0 0.125rem 0.25rem #00000013;
+                        padding: 1%;
+                        margin: 1%;
+                        ">
+                    <div class="container-fluid">
+                        {# GitHub Repo Stars #}
+                        <div class="col-sm-12 col-md-auto text-center text-lg-end text-muted">
+                            <span class="ms-md-3 d-block d-md-inline"><strong>Watches: </strong>{{ repo.watchers_count }}</span>
+                            <span class="ms-md-3 d-block d-md-inline"><strong>Forks: </strong>{{ repo.forks }}</span>
+                            <span class="ms-md-3 d-block d-md-inline"><strong>⭐ Stars: </strong>{{ repo.stargazers_count }}</span>
                         </div>
-
-
-
+                        <div 
+                            class="row align-items-center justify-content-between mx-0"
+                            style="
+                                margin-top: 10px;
+                                border-top: 1px solid rgba(0,0,0,.125);"
+                            >
+    
+                            <div class="col-sm-12 col-md-auto fs-4 noprint mx-auto">
+    
+                                <nav>
+                                    {# GitHub Repo Title #}
+                                    <h4 >
+    
+                                        <strong>
+                                            <a
+                                                type="button"
+                                                class="nav-link"
+                                                href="{{ repo.url }}"
+                                                target="_blank"
+                                                style="
+                                                    color: #337ab7;
+                                                    text-decoration: none;" 
+                                                >
+                                                {{repo.name}}
+                                            </a>
+                                        </strong>
+                                    </h4>
+                                </nav>
+                            </div>
+    
+    
+    
+                        </div>
+    
+    
+                        {# GitHub Repo Description #}
+                        <p style="
+                                text-align:center;
+                                border-bottom: 1px solid rgba(0,0,0,.125);
+                                padding-bottom: 08px;
+                                ">
+                                {{ repo.description }}
+                        </p>
                     </div>
-
-
-                    {# GitHub Repo Description #}
-                    <p style="
-                            text-align:center;
-                            border-bottom: 1px solid rgba(0,0,0,.125);
-                            padding-bottom: 08px;
-                            ">
-                            {{ repo.description }}
-                    </p>
-                </div>
-
-                <ul style="
-                        padding-top: 08px;
-                        list-style-type: none;
-                        text-align: center;
-                    ">
-                    <li>
-                        
-                        <div class="d-flex flex-row bd-hightlight mb-3">
-                            {% for topic in repo.topics %}
-                                <a
-                                    style="
-                                        text-decoration: none;
-                                        display: inline-block;
-                                        margin: 0 2px;
-                                        padding: 0 7px;
-                                        font-size: 12px;
-                                        font-weight: 500;
-                                        white-space: nowrap;
-                                        border-radius: 2em;
-                                        border: 1px solid;
-                                        color: #0969da;
-                                        background-color: #ddf4ff;"
+    
+                    {# Netbox Plugins Store - Custom Links #}
+                    <div class="nav-item dropdown dropup">
+                        <div style="
+                            text-decoration: none;
+                            display: inline-block;
+                            margin: 0 2px;
+                            padding: 0 7px;
+                            font-size: 12px;
+                            font-weight: 500;
+                            white-space: nowrap;
+                            border-radius: 2em;
+                            border: 1px solid;
+                            color: #0969da;
+                            background-color: #ddf4ff;"
+                        >
+                            <a type="button" class="nav-link dropdown-toggle text-primary" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <span
                                     class="p-2 bd-hightlight"
                                     href="https://github.com/topics/{{ topic }}"
-                                    target="_blank"
-                                >{{ topic }}</a>
-                            {% endfor %}
+                                    target="_blank">
+                                    GitHub Topics
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu disabled" aria-labelledby="navbarDropdown">
+                                {% for topic in repo.topics %}
+                                    <li>
+                                        {# Netbox Plugins Store - Documentation #}
+                                        <a type="button" class="dropdown-item" href="https://github.com/topics/{{ topic }}" target="_blank">
+                                            {{ topic }}
+                                        </a>
+                                    <li>
+                                {% endfor %}
+                            </ul>
                         </div>
-                    </li>
-
-                </ul>
-
-            </div>
-
-        {% endfor %}
+                    </div>
+    
+                </div>
+    
+            {% endfor %}
+        </div>    
     </div>
 
+
+{% endblock %}
+
+{% block footer_links %}
+    {{ block.super }}
+
+    {% include "footer.html" %}
 {% endblock %}
