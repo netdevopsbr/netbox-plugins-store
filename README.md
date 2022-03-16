@@ -141,7 +141,7 @@ Restart the WSGI service to load the new plugin:
 ```
 
 ## 2. Plugin Images
-![image](https://user-images.githubusercontent.com/24397251/158457301-88810934-d189-4a62-ac04-005ac0ab2bae.png)
+![image](https://user-images.githubusercontent.com/24397251/158582710-9ce597f4-d051-4381-8e27-96db1dc50c61.png)
 
 ## 3. Roadmap
 - **Download** and **Install** buttons, allowing to install plugins without having to go to Netbox and configure manually on PLUGINS_CONFIG
