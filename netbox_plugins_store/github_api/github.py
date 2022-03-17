@@ -17,7 +17,7 @@ class GitHubAPI():
         elif json_type == 'summary':
             github_file_name = 'repositories_github.json'
         else:
-            github_file_name = '[ERROR] Not possible to define what JSON to retrieve from GitHub'
+            return
 
 
         ### GitHub Data
@@ -32,7 +32,7 @@ class GitHubAPI():
             f'{github_api_url}/repos/{github_user}/{github_repo_name}/contents/{github_file_name}',
             headers = {
                 "Accept": "application/vnd.github.v3+json",
-                "Authorization": f"{github_read_token}"
+                "Authorization": f"token {github_read_token}"
             }
         ).json()
 
@@ -42,9 +42,10 @@ class GitHubAPI():
         get_json_file = requests.get(
             raw_content_url,
             headers = {
-                "Authorization": f"{github_read_token}"
+                "Authorization": f"token {github_read_token}"
             }
         )
+        return
 
         # Convert HTTP response to 'dict'
         repositories = json.loads(get_json_file.text)
@@ -64,7 +65,7 @@ class GitHubAPI():
         page = requests.get(
             f'{github_url}/topics/netbox-plugin',
             headers = {
-                "Authorization": f"{github_read_token}"
+                "Authorization": f"token {github_read_token}"
             }
         )
         text = page.text
@@ -90,7 +91,7 @@ class GitHubAPI():
                 page = requests.get(
                     f'{github_url}/topics/netbox-plugin?page={i}',
                     headers = {
-                        "Authorization": f"{github_read_token}"
+                        "Authorization": f"token {github_read_token}"
                     }
                 )
                     
@@ -121,7 +122,7 @@ class GitHubAPI():
             f'{github_api_url}/repos{repository_name}',
             headers = {
                 "Accept": "application/vnd.github.v3+json",
-                "Authorization": f"{self.github_read_token}"
+                "Authorization": f"token {github_read_token}"
             }
         )
 
@@ -241,7 +242,7 @@ def check_for_json_file():
 github_object = GitHubAPI(
     'https://github.com',
     'http://api.github.com',
-    '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',
+    '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',
 )
 
 # Useful functions
