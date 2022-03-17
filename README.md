@@ -8,7 +8,7 @@
 
 # netbox-plugins-store
 Easily find a useful Netbox Plugin for your environment!
-
+> The **Netbox Plugins Store** supports **[Netbox v3.2 (beta version)](https://github.com/netbox-community/netbox/releases/tag/v3.2-beta2)**
 ---
 
 ## Summary
