@@ -40,7 +40,7 @@ class NetboxPluginPage(View):
         # Get request.
         return render(
             request,
-            'netbox_plugins_store/teste.html',
+            'netbox_plugins_store/teste2.html',
             {
                 "plugin_name": plugin_name,
             }

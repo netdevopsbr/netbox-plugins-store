@@ -23,7 +23,7 @@ from . import views
 urlpatterns = [
     # Base views
     path('', views.HomeView.as_view(), name='home'),
-    path('<str:name>', views.NetboxPluginPage.as_view(), name='pluginpage'),
+    path('<str:name>', views.NetboxPluginPage.as_view(), name='teste'),
 
     # Django Admin
     path('admin/', admin.site.urls),
