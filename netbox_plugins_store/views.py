@@ -30,12 +30,18 @@ class HomeView(View):
 
 class NetboxPluginPage(View):
     """Netbox Plugin Page to render specific contet of the Plugin"""
-    template_name = 'netbox_plugins_store/pluginpage.html'
+    template_name = 'netbox_plugins_store/teste.html'
 
     # service incoming GET HTTP requests
-    def get(self, request):
-        """Get request."""
+    def get(self, request, **kwargs):
+        # Get Plugin Name from URL
+        plugin_name = kwargs.get('name')
+
+        # Get request.
         return render(
             request,
-            self.template_name,
+            'netbox_plugins_store/teste.html',
+            {
+                "plugin_name": plugin_name,
+            }
         )

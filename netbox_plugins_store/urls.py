@@ -18,15 +18,12 @@ from django.conf import settings
 from django.conf.urls import include
 from django.urls import path, re_path
 
-from .views import (
-    HomeView,
-    NetboxPluginPage,
-)
+from . import views
 
 urlpatterns = [
     # Base views
-    path('', HomeView.as_view(), name='home'),
-    path('pluginpage', NetboxPluginPage.as_view(), name='pluginpage'),
+    path('', views.HomeView.as_view(), name='home'),
+    path('<str:name>', views.NetboxPluginPage.as_view(), name='pluginpage'),
 
     # Django Admin
     path('admin/', admin.site.urls),
