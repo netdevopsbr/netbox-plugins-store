@@ -27,3 +27,15 @@ class HomeView(View):
                 "github": github.repositories,
             }
         )
+
+class NetboxPluginPage(View):
+    """Netbox Plugin Page to render specific contet of the Plugin"""
+    template_name = 'netbox_plugins_store/pluginpage.html'
+
+    # service incoming GET HTTP requests
+    def get(self, request):
+        """Get request."""
+        return render(
+            request,
+            self.template_name,
+        )
