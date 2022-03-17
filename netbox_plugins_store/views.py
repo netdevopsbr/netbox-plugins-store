@@ -24,7 +24,7 @@ class HomeView(View):
             request,
             self.template_name,
             {
-                "github": github.repositories,
+                "github": github.repos_json_summary,
             }
         )
 

@@ -3,15 +3,25 @@ import re
 import json
 import math
 
-
 class GitHubAPI():
-    def get_netbox_json(self):
+    def get_netbox_json(self, **kwargs):
         '''
             Get JSON from "https://github.com/emersonfelipesp/netbox-plugins-store/blob/develop/repositories.json"
         '''
+
+        json_type = kwargs.get('json_type', 'summary')
+
+        # Define JSON to retrieve from GitHub emersonfelipesp/netbox-plugins-store
+        if json_type == 'all':
+            github_file_name = 'repositories.json'
+        elif json_type == 'summary':
+            github_file_name = 'repositories_github.json'
+        else:
+            github_file_name = '[ERROR] Not possible to define what JSON to retrieve from GitHub'
+
+        ### GitHub Data
         github_user = 'emersonfelipesp'
         github_repo_name = 'netbox-plugins-store'
-        github_file_name = 'repositories.json'
         github_api_url = self.api_url
 
         # HTTP Request
@@ -207,7 +217,11 @@ def check_for_json_file():
 
 
 # JSON returned from GitHub
-repositories = GitHubAPI(
+github_object = GitHubAPI(
     'https://github.com',
     'http://api.github.com',
-).get_netbox_json()
+)
+
+repos_json_all = github_object.get_netbox_json(json_type = 'all')
+repos_json_summary = github_object.get_netbox_json(json_type = 'summary')
+repos_name = github_object.get_repos_name()
