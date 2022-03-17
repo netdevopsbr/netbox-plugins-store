@@ -3,3 +3,21 @@
 {% block title %}
     {{ plugin_name }}
 {% endblock %}
+
+{% block content %}
+    <div class="container">
+        {% if repos_name %}
+            <ul>
+                {% for reponame in repos_name %}
+                    <li>{{ reponame }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        {% if github %}
+            {{ github }}
+        {% else %}
+            <h3>Plugin not found.</h3>
+        {% endif %}
+    </div>
+{% endblock %}

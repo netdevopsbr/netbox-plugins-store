@@ -24,7 +24,8 @@ class HomeView(View):
             request,
             self.template_name,
             {
-                "github": github.repositories,
+                "github": github.repos_json_summary,
+                "repos_name": github.repos_name,
             }
         )
 
@@ -36,12 +37,14 @@ class PluginPageView(View):
     def get(self, request, **url_params):
         name = url_params.get('name', 'default')
 
+        github_json = github.search_github_json(name)
+
         """Get request."""
         return render(
             request,
             self.template_name,
             {
-                "github": github.repositories,
                 "plugin_name": name,
+                "github": github_json,
             }
         )
