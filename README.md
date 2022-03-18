@@ -149,7 +149,9 @@ sudo systemctl restart netbox
 ```
 
 ## 2. Plugin Images
+![image](https://user-images.githubusercontent.com/24397251/158926474-3e7cd719-d76f-45ca-8bb6-fc2e8fada073.png)
 ![image](https://user-images.githubusercontent.com/24397251/158582710-9ce597f4-d051-4381-8e27-96db1dc50c61.png)
+![image](https://user-images.githubusercontent.com/24397251/158926392-539abe96-a1e7-480d-adb6-69ac86d1e8b7.png)
 
 ## 3. Roadmap
 - **Download** and **Install** buttons, allowing to install plugins without having to go to Netbox and configure manually on PLUGINS_CONFIG
