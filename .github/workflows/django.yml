@@ -27,5 +27,4 @@ jobs:
         pip install -r requirements.txt
     - name: Run Tests
       run: |
-        cd netbox_plugins_store
-        python manage.py test
+        python ../manage.py test
