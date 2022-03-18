@@ -24,8 +24,8 @@ urlpatterns = [
     # Base views
     path('', views.HomeView.as_view(), name='home'),
     path('plugin_development', views.PluginDevelopmentView.as_view(), name='plugin_development'),
-    path('/plugin_development/readthedocs', views.ReadTheDocsGuideView.as_view(), name='readthedocs'),
-    path('/plugin_development/github', views.GitHubGuideView.as_view(), name='github'),
+    path('plugin_development/readthedocs', views.ReadTheDocsGuideView.as_view(), name='readthedocs'),
+    path('plugin_development/github', views.GitHubGuideView.as_view(), name='github'),
 
     # Django Admin
     path('admin/', admin.site.urls),
