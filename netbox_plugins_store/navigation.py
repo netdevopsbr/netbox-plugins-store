@@ -11,7 +11,7 @@ menu_items = (
         link_text='Plugins Development',
         buttons=(
             PluginMenuButton('plugins:netbox_plugins_store:readthedocs', 'Plugins Development - ReadTheDocs', 'mdi mdi-file-document-multiple', ButtonColorChoices.BLUE),
-            PluginMenuButton('plugins:netbox_plugins_store:github', 'Plugins Development - GitHub', 'mdi mdi-github'),
+            PluginMenuButton('plugins:netbox_plugins_store:github', 'Plugins Development - GitHub', 'mdi mdi-github', ButtonColorChoices.BLACK),
         )
     ),
 )
