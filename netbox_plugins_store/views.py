@@ -27,3 +27,28 @@ class HomeView(View):
                 "github": github.repositories,
             }
         )
+
+class PluginDevelopmentView(View):
+    """Plugins Development Tutorial"""
+
+    template_name = 'netbox_plugins_store/plugin_development.html'
+
+    # service incoming GET HTTP requests
+    def get(self, request):
+        """Get request."""
+        return render(
+            request,
+            self.template_name,
+        )
+
+class ReadTheDocsGuideView(View):
+    """Plugins Development Tutorial - ReadTheDocs"""
+
+    def get(self, request):
+        return redirect('https://netbox.readthedocs.io/en/feature/plugins/development/')
+
+class GitHubGuideView(View):
+    """Plugins Development Tutorial - GitHub"""
+
+    def get(self, request):
+        return redirect('https://github.com/netbox-community/netbox-plugin-tutorial')
