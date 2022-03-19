@@ -14,4 +14,8 @@ menu_items = (
             PluginMenuButton('plugins:netbox_plugins_store:github', 'Plugins Development - GitHub', 'mdi mdi-github', ButtonColorChoices.BLACK),
         )
     ),
+    PluginMenuItem(
+        link='plugins:netbox_plugins_store:community',
+        link_text='Netbox Community',
+    ),
 )
