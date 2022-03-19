@@ -13,6 +13,7 @@ from django.views.generic import View
 
 from netbox_plugins_store.github_api import github
 
+
 class HomeView(View):
     """Homepage"""
     template_name = 'netbox_plugins_store/home.html'
@@ -28,6 +29,21 @@ class HomeView(View):
             }
         )
 
+
+class NetboxCommunity(View):
+    """Plugins Development Tutorial"""
+
+    template_name = 'netbox_plugins_store/community.html'
+
+    # service incoming GET HTTP requests
+    def get(self, request):
+        """Get request."""
+        return render(
+            request,
+            self.template_name,
+        )
+
+
 class PluginDevelopmentView(View):
     """Plugins Development Tutorial"""
 
@@ -41,11 +57,13 @@ class PluginDevelopmentView(View):
             self.template_name,
         )
 
+
 class ReadTheDocsGuideView(View):
     """Plugins Development Tutorial - ReadTheDocs"""
 
     def get(self, request):
         return redirect('https://netbox.readthedocs.io/en/feature/plugins/development/')
+
 
 class GitHubGuideView(View):
     """Plugins Development Tutorial - GitHub"""
