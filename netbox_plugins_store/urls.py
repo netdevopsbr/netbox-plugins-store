@@ -23,10 +23,16 @@ from . import views
 urlpatterns = [
     # Base views
     path('', views.HomeView.as_view(), name='home'),
+
+    # Community Views
     path('community', views.NetboxCommunity.as_view(), name='community'),
+
+    # Plugin Topics Views
     path('plugin_development', views.PluginDevelopmentView.as_view(), name='plugin_development'),
-    path('plugin_development/readthedocs', views.ReadTheDocsGuideView.as_view(), name='readthedocs'),
-    path('plugin_development/github', views.GitHubGuideView.as_view(), name='github'),
+
+    # External Links (HTTP 301)
+    path('<str:category>/<str:name>', views.PluginDevelopmentView.as_view(), name='external_links'),
+    path('<str:category>/<str:country>/<str:name>', views.PluginDevelopmentView.as_view(), name='country_ext_links'),
 
     # Django Admin
     path('admin/', admin.site.urls),

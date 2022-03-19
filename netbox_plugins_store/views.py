@@ -44,6 +44,62 @@ class NetboxCommunity(View):
         )
 
 
+class ExternalLinkView(View):
+    """Homepage"""
+    template_name = 'netbox_plugins_store/external_link.html'
+
+    # External URL's related to Netbox
+    external_urls = {
+        "plugin": {
+            "readthedocs": "https://netbox.readthedocs.io/en/feature/plugins/development/",
+            "github-tutorial": "https://github.com/netbox-community/netbox-plugin-tutorial"
+        },
+        "community": {
+            "slack": "https://netdev.chat/",
+            "github_discussion": "https://github.com/netbox-community/netbox/discussions",
+            "brazil": {
+                "telegram": "https://t.me/netboxbr",
+                "discord": "https://discord.gg/Zp9YQ67j"
+            }
+        }
+    }
+    # service incoming GET HTTP requests
+    def get(self, request, **url_params):
+        external_urls = self.external_urls
+
+        # HTTP Request Parameters
+        category = url_params.get('category', 'default')
+        country = url_params.get('country', 'empty')
+        name = url_params.get('name', 'default')
+
+        if category != 'default':
+            if country != 'empty':
+                if name != 'default':
+                    try:
+                        url = external_urls.get(category).get(country).get(name)
+                    except:
+                        url = 'plugins:netbox_plugins_store:home'
+        else:
+            url = 'plugins:netbox_plugins_store:home'
+        """Get request."""
+        return redirect(url)
+
+class CommunitySlack(View):
+    """Netbox Slack Official Community"""
+    external_url = 'https://netdev.chat/'
+
+    def get(self, request):
+        return redirect(self.external_url)
+
+
+class CommunityGitHubDiscussion(View):
+    """Netbox Slack Official Community"""
+    external_url = 'https://github.com/netbox-community/netbox/discussions'
+    
+    def get(self, request):
+        return redirect(self.external_url)
+
+
 class PluginDevelopmentView(View):
     """Plugins Development Tutorial"""
 
@@ -56,17 +112,3 @@ class PluginDevelopmentView(View):
             request,
             self.template_name,
         )
-
-
-class ReadTheDocsGuideView(View):
-    """Plugins Development Tutorial - ReadTheDocs"""
-
-    def get(self, request):
-        return redirect('https://netbox.readthedocs.io/en/feature/plugins/development/')
-
-
-class GitHubGuideView(View):
-    """Plugins Development Tutorial - GitHub"""
-
-    def get(self, request):
-        return redirect('https://github.com/netbox-community/netbox-plugin-tutorial')
