@@ -6,6 +6,10 @@
 
 <br>
 
+# Project is got old, but I will come up with a new version supporting v3.5 and its features!
+
+<br>
+
 # netbox-plugins-store
 Easily find a useful Netbox Plugin for your environment!
 > The **Netbox Plugins Store** supports **[Netbox v3.2 (beta version)](https://github.com/netbox-community/netbox/releases/tag/v3.2-beta2)**
